@@ -20,9 +20,3 @@ jobs:
         run: docker build -t cicd-Pipeline .
       - name: Push image to DockerHub
         run: docker push ${{ secrets.DOCKER_USERNAME }}/cicd-pipeline:latest
-
-
-        
-
-      
-      -
