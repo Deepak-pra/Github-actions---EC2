@@ -16,10 +16,10 @@ jobs:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
 
-    - name:Code checkout
-      uses: actions/checkout@v2
+      - name: Code checkout
+        uses: actions/checkout@v2
 
-    - name: Login Dockerhub
+      - name: Login Dockerhub
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       
     - name: Build the Docker image
