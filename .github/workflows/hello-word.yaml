@@ -38,7 +38,7 @@ jobs:
       - name: Add SSH Key
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > pipeline.pem
-          chmod 600 cicd-pipeline.pem
+          chmod 600 pipeline.pem
              
       - name: Run Command on EC2
         run: |
