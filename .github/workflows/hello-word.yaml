@@ -21,6 +21,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/cicd-pipeline:latest
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: code-checkout
