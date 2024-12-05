@@ -1,19 +1,14 @@
-FROM node:16
+# Use the official NGINX image from the Docker Hub
+FROM nginx:latest
 
-# Create app directory
-WORKDIR /usr/src/app
+# Copy your custom NGINX configuration file to the container
+#COPY nginx.conf /etc/nginx/nginx.conf
 
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+# Copy your static website files to the container
+COPY . /usr/share/nginx/html
 
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
+# Expose port 80 to the outside world
+EXPOSE 80
 
-# Bundle app source
-COPY . .
-
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+# Start NGINX when the container launches
+CMD ["nginx", "-g", "daemon off;"]
