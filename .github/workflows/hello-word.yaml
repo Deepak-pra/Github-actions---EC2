@@ -47,4 +47,4 @@ jobs:
           echo "Running commands on EC2 instance"
           sudo docker stop $(docker ps)
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/cicd-pipeline:latest
-          sudo docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/cicd-pipeline:latest
+          sudo docker run --name Demo -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/cicd-pipeline:latest
